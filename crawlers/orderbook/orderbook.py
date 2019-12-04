@@ -22,6 +22,8 @@ class OrderBook(object):
         self.asks_sorted = []
 
     def insert(self, price, amount, direction):
+
+        # if the amount of a price is 0, delete it from the dictionary
         if direction == self.BIDS:
             if amount == 0:
                 if price in self.bids:
@@ -84,4 +86,5 @@ class Crawler:
 
 
 if __name__ == '__main__':
+    # symbol can be "BTCUSD", "ETHBTC", etc
     crawler = Crawler(symbol='ETHBTC', filename='ETHBTC.txt')
